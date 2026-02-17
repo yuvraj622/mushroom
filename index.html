@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuvraj Mushroom Farm</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f1ea;
+}
+
+header {
+    background: #1b5e20;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #2e7d32;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    background: url('https://images.unsplash.com/photo-1506806732259-39c2d0268443') no-repeat center/cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section {
+    padding: 40px;
+    text-align: center;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+.cart {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+footer {
+    background: #1b5e20;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media(max-width:768px){
+    .hero {
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Yuvraj Mushroom Farm</h2>
+    <p>Pure • Fresh • Organic</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+    <h1>Fresh & Organic Mushrooms Direct from Farm</h1>
+</div>
+
+<div class="section" id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+        
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1604908176997-431b7e9d2f09">
+            <h3>Button Mushroom</h3>
+            <p>₹180 / kg</p>
+            <button onclick="addToCart('Button Mushroom',180)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae">
+            <h3>Oyster Mushroom</h3>
+            <p>₹200 / kg</p>
+            <button onclick="addToCart('Oyster Mushroom',200)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1598514982993-3f6a5c4f8e7d">
+            <h3>Shiitake Mushroom</h3>
+            <p>₹450 / kg</p>
+            <button onclick="addToCart('Shiitake Mushroom',450)">Add to Cart</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="cart">
+    <h4>Cart</h4>
+    <p id="cart-items">No items</p>
+    <p><strong>Total: ₹<span id="total">0</span></strong></p>
+</div>
+
+<div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 +91 9876543210</p>
+    <p>📍 India</p>
+    <p>
+        <a href="https://wa.me/919876543210">
+            <button>Order on WhatsApp</button>
+        </a>
+    </p>
+</div>
+
+<footer>
+    © 2026 Yuvraj Mushroom Farm | All Rights Reserved
+</footer>
+
+<script>
+let total = 0;
+let items = [];
+
+function addToCart(name, price){
+    items.push(name);
+    total += price;
+    document.getElementById("cart-items").innerText = items.join(", ");
+    document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
